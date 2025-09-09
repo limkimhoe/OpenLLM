@@ -1,25 +1,35 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-  "name": "Python Codespace",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11", // Use desired Python version
+  "name": "Python 3",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
   "features": {
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.11"
-    }
+    "ghcr.io/devcontainers-contrib/features/coverage-py:2": {}
   },
-  // Run commands after container creation
-  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
-  // Optional: VS Code settings
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "pip3 install --user -r requirements.txt",
+
+
+  // Configure tool-specific properties.
   "customizations": {
+    // Configure properties specific to VS Code.
     "vscode": {
-      "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python"
-      },
+      // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
-        "ms-python.python",
-        "ms-toolsai.jupyter"
+        "streetsidesoftware.code-spell-checker",
+        "rangav.vscode-thunder-client"
       ]
     }
-  },
-  // Mount your workspace
-  "remoteUser": "vscode"
+  }
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
 }
